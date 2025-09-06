@@ -84,7 +84,7 @@ The application operates on a **decoupled client-server architecture**, ensuring
 | ------------------- | ------------------------------------------------------- |
 | **Backend**         | Python, FastAPI                                         |
 | **Frontend**        | HTML, Tailwind CSS, Chart.js                            |
-| **AI - Generation** | Google Gemini API (`gemini-1.5-flash-latest`)           |
+| **AI - Generation** | Google Gemini API (`gemini-2.5-flash-lite`)           |
 | **AI - Analysis**   | Hugging Face Transformers, Sentence-Transformers, Faiss |
 | **Database**        | SQLite                                                  |
 | **Email Service**   | Gmail API                                               |
