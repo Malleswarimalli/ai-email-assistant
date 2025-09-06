@@ -1,116 +1,120 @@
-📧 AI-Powered Email Communication Assistant
-An intelligent, end-to-end solution designed to automate and streamline the management of customer support emails. This application leverages the power of Large Language Models to analyze, prioritize, and draft responses, transforming your inbox into an efficient, automated command center.
+# 📧 AI-Powered Email Communication Assistant
 
-🎥 Demonstration Video
-Watch a full walkthrough of the application's features and workflow here:
+An intelligent, end-to-end solution designed to **automate and streamline the management of customer support emails**.
+This application leverages the power of **Large Language Models** to analyze, prioritize, and draft responses, transforming your inbox into an efficient, automated command center.
 
-[INSERT YOUR YOUTUBE OR LOOM VIDEO LINK HERE]
+---
 
-✨ Key Features
-📨 Automated Email Ingestion: Automatically fetches all support-related emails from a Gmail account over the last 24 hours, searching for keywords like "Support," "Query," and "Help" in the entire message.
+## 🎥 Demonstration Video
 
-🤖 Intelligent AI Analysis:
+📹 Watch a full walkthrough of the application's features and workflow here:
 
-Priority Detection: A rule-based system instantly flags emails containing keywords like "Urgent" or "Critical" for immediate attention.
+\[INSERT YOUR YOUTUBE OR LOOM VIDEO LINK HERE]
 
-Sentiment Analysis: Utilizes a distilbert-base-uncased model from Hugging Face to classify each email's tone as Positive, Negative, or Neutral.
+---
 
-✍️ Context-Aware Response Generation:
+## ✨ Key Features
 
-Employs the Google Gemini API (gemini-1.5-flash-latest) to generate high-quality, empathetic, and professional draft replies.
+### 📨 Automated Email Ingestion
 
-Features a Retrieval-Augmented Generation (RAG) pipeline, using a local knowledge base (kb.txt) to find relevant information and provide factually accurate answers.
+* Automatically fetches all support-related emails from a **Gmail account** over the last 24 hours.
+* Searches for keywords like **"Support," "Query," and "Help"** in the entire message.
 
-📊 Interactive Analytics Dashboard:
+### 🤖 Intelligent AI Analysis
 
-Provides at-a-glance statistics with cards for Total Emails, Pending, Resolved, and Urgent.
+* **Priority Detection**: A rule-based system instantly flags emails containing keywords like **"Urgent"** or **"Critical"** for immediate attention.
+* **Sentiment Analysis**: Uses `distilbert-base-uncased` from Hugging Face to classify tone as **Positive, Negative, or Neutral**.
 
-Includes a suite of charts to visualize Status Overview, Priority Breakdown, and Sentiment Distribution over time.
+### ✍️ Context-Aware Response Generation
 
-🔄 Full End-to-End Workflow: Allows users to seamlessly review, edit, and send AI-generated replies directly from the dashboard, automatically marking the email as "Resolved".
+* Employs the **Google Gemini API (`gemini-1.5-flash-latest`)** to generate high-quality, empathetic, and professional draft replies.
+* Features a **RAG pipeline**, using a local `kb.txt` knowledge base to provide factually accurate answers.
 
-🏛️ Architecture & How It Works
-The application operates on a decoupled client-server architecture, ensuring a scalable and maintainable system.
+### 📊 Interactive Analytics Dashboard
 
-Frontend (Client): A single-page application built with HTML, Tailwind CSS, and Chart.js. It provides a clean and responsive user interface that communicates with the backend via REST API calls to fetch data and trigger actions.
+* **At-a-glance statistics** with cards for: Total Emails, Pending, Resolved, and Urgent.
+* Charts for **Status Overview, Priority Breakdown, and Sentiment Distribution** over time.
 
-Backend (API Server): A robust FastAPI server acts as the central brain. It exposes endpoints for fetching emails, generating responses, sending replies, and retrieving analytics data.
+### 🔄 Full End-to-End Workflow
 
-Email Ingestion Pipeline:
+* Review, edit, and send **AI-generated replies** directly from the dashboard.
+* Automatically marks the email as **"Resolved"** once sent.
 
-A background task is initiated via an API call.
+---
 
-It securely connects to the Gmail API using OAuth 2.0 credentials.
+## 🏩 Architecture & How It Works
 
-It performs a comprehensive search for relevant emails and loops through all pages of results to ensure no email is missed.
+The application operates on a **decoupled client-server architecture**, ensuring scalability and maintainability.
 
-Each unique email is parsed, cleaned, and stored in the SQLite database.
+### **Frontend (Client)**
 
-AI Processing Core:
+* Built with **HTML, Tailwind CSS, and Chart.js**.
+* A clean, responsive **SPA** that communicates with the backend via REST APIs.
 
-Initial Analysis: As soon as an email is stored, it's passed through local AI models for priority and sentiment analysis.
+### **Backend (API Server)**
 
-RAG Pipeline for Response Generation:
+* **FastAPI** powers the central brain of the system.
+* Exposes endpoints for **fetching emails, generating responses, sending replies, and retrieving analytics**.
 
-The user selects an email, triggering a request to the /generate-response endpoint.
+### **Email Ingestion Pipeline**
 
-The email body is converted into a numerical vector (embedding) using a SentenceTransformer model.
+1. Background task triggered via API call.
+2. Secure Gmail API connection with **OAuth 2.0**.
+3. Fetches and parses all relevant emails.
+4. Cleans and stores them in an **SQLite database**.
 
-Faiss (Facebook AI Similarity Search) is used to perform an ultra-fast search against a pre-indexed vector knowledge base, retrieving the most relevant Q&A pairs.
+### **AI Processing Core**
 
-This retrieved context is combined with the original email and its sentiment into a carefully engineered prompt.
+* **Initial Analysis**: Each email is analyzed for priority and sentiment.
+* **RAG Pipeline**:
 
-The final prompt is sent to the Google Gemini API, which returns a coherent, context-aware, and helpful draft reply.
+  * Email → Embedding via `SentenceTransformer`.
+  * **Faiss** retrieves most relevant context from knowledge base.
+  * Combined prompt sent to **Google Gemini API** for draft generation.
 
-Database: A simple and efficient SQLite database stores all email data, including metadata, AI analysis results, and status (pending/resolved).
+### **Database**
 
-🛠️ Tech Stack
-Category
+* **SQLite** stores all email metadata, AI analysis results, and status (**Pending/Resolved**).
 
-Technology / Service
+---
 
-Backend
+## 🛠️ Tech Stack
 
-Python, FastAPI
+| Category            | Technology / Service                                    |
+| ------------------- | ------------------------------------------------------- |
+| **Backend**         | Python, FastAPI                                         |
+| **Frontend**        | HTML, Tailwind CSS, Chart.js                            |
+| **AI - Generation** | Google Gemini API (`gemini-1.5-flash-latest`)           |
+| **AI - Analysis**   | Hugging Face Transformers, Sentence-Transformers, Faiss |
+| **Database**        | SQLite                                                  |
+| **Email Service**   | Gmail API                                               |
 
-Frontend
+---
 
-HTML, Tailwind CSS, Chart.js
+## 🚀 Getting Started
 
-AI - Generation
+Follow these instructions to set up and run the project locally.
 
-Google Gemini API (gemini-1.5-flash-latest)
+### ✅ Prerequisites
 
-AI - Analysis
+* **Python 3.9+**
+* A **Google account with Gmail API enabled**
+* A **Google Gemini API key**
 
-Hugging Face Transformers, Sentence-Transformers, Faiss
+---
 
-Database
+### ⚡ Installation
 
-SQLite
+#### 1. Clone the Repository
 
-Email Service
-
-Gmail API
-
-🚀 Getting Started
-Follow these instructions to set up and run the project on your local machine.
-
-Prerequisites
-Python 3.9+
-
-A Google account with the Gmail API enabled.
-
-A Google Gemini API key.
-
-Installation
-Clone the Repository
-
-git clone [https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git)
+```bash
+git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
 cd YOUR_REPOSITORY_NAME
+```
 
-Create and Activate a Virtual Environment
+#### 2. Create and Activate a Virtual Environment
 
+```bash
 # For macOS/Linux
 python3 -m venv venv
 source venv/bin/activate
@@ -118,21 +122,35 @@ source venv/bin/activate
 # For Windows
 python -m venv venv
 .\venv\Scripts\activate
+```
 
-Install Dependencies
+#### 3. Install Dependencies
 
+```bash
 pip install -r requirements.txt
+```
 
-Configure Credentials & API Keys
+#### 4. Configure Credentials & API Keys
 
-Gmail API: Follow the Google instructions to enable the Gmail API and download your credentials.json file. Place it in the root of the project folder.
+* **Gmail API**: Enable the Gmail API, download your `credentials.json`, and place it in the project root.
+* **Environment Variables**: Create a `.env` file in the root and add your Gemini API key:
 
-Environment Variables: Create a file named .env in the root of the project and add your Google Gemini API key:
-
+```env
 GOOGLE_API_KEY="AIzaSy..."
+```
 
-Run the Application
+---
 
-Start the Backend Server:
+### ▶️ Run the Application
 
+Start the **FastAPI backend server**:
+
+```bash
 uvicorn main:app --reload
+```
+
+---
+
+✅ Now your **AI-Powered Email Communication Assistant** is up and running!
+
+---
