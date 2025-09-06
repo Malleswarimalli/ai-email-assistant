@@ -1,0 +1,14 @@
+Q: How do I reset my password?
+A: You can reset your password by visiting our login page and clicking the 'Forgot Password' link. An email with instructions will be sent to you.
+
+Q: What are the pricing tiers?
+A: We offer three main pricing tiers: Basic at $10/month, Pro at $25/month, and Enterprise at $50/month. Each tier offers different features and levels of support.
+
+Q: Do you support API integrations?
+A: Yes, API access is available on our Pro and Enterprise plans. You can find the full documentation for our API at https://www.google.com/search?q=api.example.com/docs.
+
+Q: How do I request a refund?
+A: Our refund policy allows for requests within 14 days of purchase. To request a refund, please reply with your original purchase receipt and the reason for the request.
+
+Q: Why is the server down?
+A: We are currently experiencing unexpected technical difficulties and our engineering team is working hard to resolve the issue. We apologize for the inconvenience and will provide an update as soon as possible.
