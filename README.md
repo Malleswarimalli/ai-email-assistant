@@ -9,7 +9,7 @@ This application leverages the power of **Large Language Models** to analyze, pr
 
 📹 Watch a full walkthrough of the application's features and workflow here:
 
-\[INSERT YOUR YOUTUBE OR LOOM VIDEO LINK HERE]
+\[https://www.loom.com/share/e808b606516b4ed788acdeb58b4f7d77?sid=dfbd7aed-3aa1-4133-8111-a9fa89f61f5d]
 
 ---
 
