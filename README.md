@@ -27,7 +27,7 @@ This application leverages the power of **Large Language Models** to analyze, pr
 
 ### ✍️ Context-Aware Response Generation
 
-* Employs the **Google Gemini API (`gemini-1.5-flash-latest`)** to generate high-quality, empathetic, and professional draft replies.
+* Employs the **Google Gemini API (`gemini-2.5-flash-lite`)** to generate high-quality, empathetic, and professional draft replies.
 * Features a **RAG pipeline**, using a local `kb.txt` knowledge base to provide factually accurate answers.
 
 ### 📊 Interactive Analytics Dashboard
